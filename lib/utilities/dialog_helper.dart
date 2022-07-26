@@ -168,33 +168,29 @@ class DialogHelper {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7.0)), //this right here
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              child: Text(
-                title,
-                style: const TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 16),
-              ),
+            Text(
+              title,
+              style: const TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 16),
             ),
             const SizedBox(
               height: 20,
             ),
-            Container(
-              child: Text(
-                description,
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 16),
-              ),
+            Text(
+              description,
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 16),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -207,7 +203,7 @@ class DialogHelper {
                     Get.back();
                   },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                    padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(5),
@@ -223,7 +219,7 @@ class DialogHelper {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 GestureDetector(
@@ -231,7 +227,7 @@ class DialogHelper {
                     Get.back();
                   },
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                    padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
                     decoration: BoxDecoration(
                       // color: Color(0xFFE8705A),
                       borderRadius: BorderRadius.circular(5),

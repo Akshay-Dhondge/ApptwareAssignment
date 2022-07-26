@@ -13,8 +13,8 @@ class UserDetailsPage extends StatefulWidget {
 }
 
 class _UserDetailsPageState extends State<UserDetailsPage> {
-  var width;
-  var height;
+  late double width;
+  late double height;
   bool? isInternetConnected;
   final InternetConnectivity _internetConnectivity = InternetConnectivity();
 
@@ -34,29 +34,30 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          shadowColor: Colors.black.withOpacity(0.1),
-          leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(
-              Icons.chevron_left_rounded,
-              color: Colors.black,
-              size: 32,
-            ),
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        shadowColor: Colors.black.withOpacity(0.1),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.chevron_left_rounded,
+            color: Colors.black,
+            size: 32,
           ),
-          titleSpacing: 0,
-          title: Text(AppStrings().userDetails,
-              style: TextStyle(
-                  color: Colors.grey[800],
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16)),
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(),
         ),
-        body: buildUserDataWidget());
+        titleSpacing: 0,
+        title: Text(AppStrings().userDetails,
+            style: TextStyle(
+                color: Colors.grey[800],
+                fontWeight: FontWeight.bold,
+                fontSize: 16)),
+      ),
+      body: buildUserDataWidget(),
+    );
   }
 
   Widget buildUserDataWidget() {

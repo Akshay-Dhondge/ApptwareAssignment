@@ -63,7 +63,7 @@ class BaseClient {
   //Post request to server
   Future<dynamic> post() async {
     try {
-      log("Url ${url}", name: "URL");
+      log("Url $url", name: "URL");
 
       var response = await client
           .post(

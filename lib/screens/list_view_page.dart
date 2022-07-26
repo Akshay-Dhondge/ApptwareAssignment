@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:assignment/constants/strings.dart';
 import 'package:assignment/controllers/controller.dart';
 import 'package:assignment/models/sample_data.dart';
@@ -21,7 +20,7 @@ class ListViewPage extends StatefulWidget {
 class _ListViewPageState extends State<ListViewPage> {
   final controller = Get.put(Controller());
   bool _loading = false;
-  List<User> _users = [];
+  final List<User> _users = [];
   final ScrollController _scrollController = ScrollController();
   int pageNumber = 1;
   late InternetConnectivity _internetConnectivity;
@@ -43,18 +42,21 @@ class _ListViewPageState extends State<ListViewPage> {
         showProgressDialog();
         callGetSampleDataListApi(pageNumber);
       } else {
-        final prefs = await SharedPreferences.getInstance();
-        String usersData = prefs.getString(AppStrings().userData) ?? "";
-        if (usersData != "") {
-          List tempList = jsonDecode(usersData);
-          tempList.forEach((element) {
-            _users.add(User.fromJson(element));
-          });
-        }
-
-        setState(() {});
+        getDataFromLocalStorage();
       }
     });
+  }
+
+  getDataFromLocalStorage() async {
+    final prefs = await SharedPreferences.getInstance();
+    String usersData = prefs.getString(AppStrings().userData) ?? "";
+    if (usersData != "") {
+      List tempList = jsonDecode(usersData);
+      tempList.forEach((element) {
+        _users.add(User.fromJson(element));
+      });
+    }
+    setState(() {});
   }
 
   void showProgressDialog() {
@@ -105,7 +107,6 @@ class _ListViewPageState extends State<ListViewPage> {
     prefs.setString(AppStrings().userData, userData);
   }
 
-  ///DATA VARIABLES
   @override
   Widget build(BuildContext context) {
     return Scaffold(

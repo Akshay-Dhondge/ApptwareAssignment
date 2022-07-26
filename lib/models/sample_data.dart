@@ -23,9 +23,9 @@ class SampleData {
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
-    data['total'] = this.total;
-    data['page'] = this.page;
-    data['limit'] = this.limit;
+    data['total'] = total;
+    data['page'] = page;
+    data['limit'] = limit;
     return data;
   }
 }
@@ -48,12 +48,12 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['firstName'] = this.firstName;
-    data['lastName'] = this.lastName;
-    data['picture'] = this.picture;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['firstName'] = firstName;
+    data['lastName'] = lastName;
+    data['picture'] = picture;
     return data;
   }
 }

@@ -96,8 +96,8 @@ class _ListViewPageState extends State<ListViewPage> {
   callGetSampleDataListApi(int pageNumber) async {
     controller.refresh();
     await controller.getSampleData(pageNumber: pageNumber);
-    hideProgressDialog();
     controller.sampleDataModel.isNotEmpty ? setSampleData() : null;
+    hideProgressDialog();
   }
 
   setSampleData() async {
@@ -111,9 +111,9 @@ class _ListViewPageState extends State<ListViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.white,
         shadowColor: Colors.black.withOpacity(0.1),
-        titleSpacing: 0,
         title: Text(AppStrings().userList,
             style: TextStyle(
                 color: Colors.grey[800],

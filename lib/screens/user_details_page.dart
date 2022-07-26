@@ -35,6 +35,7 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
     height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.white,
         shadowColor: Colors.black.withOpacity(0.1),
         leading: IconButton(
@@ -49,7 +50,6 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
           padding: EdgeInsets.zero,
           constraints: const BoxConstraints(),
         ),
-        titleSpacing: 0,
         title: Text(AppStrings().userDetails,
             style: TextStyle(
                 color: Colors.grey[800],
